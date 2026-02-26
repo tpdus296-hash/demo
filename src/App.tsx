@@ -207,8 +207,8 @@ export default function App() {
                   <th className="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider text-nowrap">품목명</th>
                   <th className="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider text-nowrap">매출 / 목표</th>
                   <th className="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider text-nowrap">단가</th>
-                  <th className="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider text-nowrap">상태</th>
                   <th className="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider text-nowrap">자재 세팅 예정일</th>
+                  <th className="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider text-nowrap">상태</th>
                   <th className="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider text-nowrap">우선순위</th>
                 </tr>
               </thead>
@@ -245,6 +245,12 @@ export default function App() {
                     </td>
                     <td className="px-6 py-4 font-medium text-slate-700">₩{product.unitPrice.toLocaleString()}</td>
                     <td className="px-6 py-4">
+                      <div className="flex items-center gap-2 text-slate-600">
+                        <Calendar className="w-4 h-4 text-slate-400" />
+                        <span className="text-xs font-medium">{product.materialSetupDate}</span>
+                      </div>
+                    </td>
+                    <td className="px-6 py-4">
                       <div className="flex items-center gap-1.5">
                         {product.status === '위기' ? (
                           <AlertCircle className="w-4 h-4 text-rose-500" />
@@ -257,12 +263,6 @@ export default function App() {
                         }`}>
                           {product.status}
                         </span>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4">
-                      <div className="flex items-center gap-2 text-slate-600">
-                        <Calendar className="w-4 h-4 text-slate-400" />
-                        <span className="text-xs font-medium">{product.materialSetupDate}</span>
                       </div>
                     </td>
                     <td className="px-6 py-4">
