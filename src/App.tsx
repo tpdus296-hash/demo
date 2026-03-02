@@ -15,7 +15,7 @@ import {
 } from 'lucide-react';
 import { motion } from 'motion/react';
 
-// --- Mock Data ---
+// --- 목업 데이터 ---
 
 const SALES_DATA = [
   { month: '1월', sales: 4500, target: 4000 },
@@ -42,7 +42,7 @@ const PRODUCT_ANALYSIS = [
   { id: 6, code: 'COS-FR-007', name: '로즈 에센스 퍼퓸', category: '향수', sales: 320, target: 600, unitPrice: 128000, status: '주의', priority: '높음', materialSetupDate: '2026-03-08' },
 ];
 
-// --- Components ---
+// --- 컴포넌트 ---
 
 const StatCard = ({ title, value, change, icon: Icon, trend }: any) => (
   <motion.div 
@@ -73,7 +73,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans p-4 md:p-8">
-      {/* Header */}
+      {/* 헤더 */}
       <header className="max-w-7xl mx-auto mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h1 className="text-3xl font-bold tracking-tight text-slate-900">코스메틱 인사이트 프로</h1>
@@ -92,7 +92,7 @@ export default function App() {
       </header>
 
       <main className="max-w-7xl mx-auto space-y-6">
-        {/* Stats Grid */}
+        {/* 통계 그리드 */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <StatCard title="총 매출액" value={`₩${(totalSales * 100000).toLocaleString()}`} change="+12.5%" icon={TrendingUp} trend="up" />
           <StatCard title="총 주문 건수" value="1,284건" change="+8.2%" icon={ShoppingBag} trend="up" />
@@ -100,9 +100,9 @@ export default function App() {
           <StatCard title="목표 달성률" value={`${achievementRate}%`} change="+4.1%" icon={Target} trend="up" />
         </div>
 
-        {/* Charts Row */}
+        {/* 차트 영역 */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Sales Trend */}
+          {/* 매출 추이 */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -137,7 +137,7 @@ export default function App() {
             </div>
           </motion.div>
 
-          {/* Category Distribution */}
+          {/* 카테고리별 분포 */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -178,7 +178,7 @@ export default function App() {
           </motion.div>
         </div>
 
-        {/* Priority Management Table */}
+        {/* 우선순위 관리 테이블 */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
